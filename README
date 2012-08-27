@@ -1,11 +1,22 @@
-RailsCasts Episode #306: ElasticSearch Part 1
 
-http://railscasts.com/episodes/306-elasticsearch-part-1
-
-Commands used in episode
-
-  brew install elasticsearch
+Do the following to get this working...
+==Install ElasticSearch==
+On Mac - use homebrew
+brew install elasticsearch
   elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.18.5/config/elasticsearch.yml
-  rake db:setup
 
-Require Ruby 1.9.2 or later to run example.
+==On Windows==
+Grab the installer here...
+https://github.com/rgl/elasticsearch-setup/downloads
+
+you must restart your computer on windows...
+Access here to make sure it is working after the restart...
+http://localhost:9200/
+
+==Then run the following commands...==
+
+  bundle
+  rake db:setup
+  start your server
+
+Requires Ruby 1.9.2 or later to run.
