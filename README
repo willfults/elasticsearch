@@ -20,3 +20,26 @@ http://localhost:9200/
   start your server
 
 Requires Ruby 1.9.2 or later to run.
+
+== For the most basic usage of elasticsearch do the following==
+
+controller....add code...
+Article.search(params)
+
+model....
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+  
+  def self.search(params)
+    tire.search(load: true) do
+      query { string params[:query], default_operator: "AND" } if params[:query].present?
+    end
+  end
+  
+  view...
+  <%= form_tag articles_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
